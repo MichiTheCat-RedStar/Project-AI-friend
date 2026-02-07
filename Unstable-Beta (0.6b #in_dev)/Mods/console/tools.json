@@ -1,0 +1,13 @@
+{   
+"type": "function",
+    "function": {
+        "name": "console", 
+        "description": "Ввести и выполнить любую команду в консоль пользователя\n'echo' выведет сообщение в консоль пользователя, но вернёт ноль",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": "string",
+                    "description": "Команда для ввода в консоль"}},
+            "required": ["command"]}}
+}

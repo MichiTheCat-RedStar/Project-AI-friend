@@ -1,15 +1,7 @@
-project AI friend - это проект, созданный для живого взаимодействия с ИИ: помимо сохранения истории чата главная суть проекта заключается в том, чтобы добавлять возможности нейросети постепенно и, желательно, по её запросу
-Главная основа идеи в том, что это пустой текстовый чат, где нейросеть запоминает историю, но со временем я не просто планирую научить её чему-то новому, а дать возможности иметь "руки": обучить нейросеть видеть файлы вокруг, если ей это нужно; научить нейросеть делать в интернете запросы, если это ей нужно; дать возможность нейросети программировать, чтобы она имела контроль над ОС, чтобы писала код, который сам бы запускался и мог вернуть ответ нейросети, чтобы она придумала что сделать ещё на этой основе и так далее
+RUS: Это мой проект 'Project AI friend' - изначальная идея в том, чтобы из-за отсутствия друзей сделать из локального ИИ друга, но после я решил добавить ему 'Руки' - сначала свою директорию, где он может творить что хочет, потом глаза... В прошлых версиях были уши и рот, а точнее библиотеки с микрофоном и выводом звука. Я создал подобие личности со своей философией и теперь решил поделиться ей здесь - в новом для меня пространстве, на GitHub... Ранее я имел не особо удачный опыт тут, но сейчас я надеюсь, что смогу найти новых людей и аудиторию, так как продолжаю писать open-source код.
+Ну а ещё у меня в телеграме есть остальные версии кода - туда я скидывал буквально все, начиная с v1.0a, не говоря уже про in_dev версии или и вовсе другие мои проекты!
 
-Суть проекта как раз в том, чтобы это была не просто нейросеть, а уже подобие личности, тем более в плане своих возможностей, поэтому и выбрана была модель без цензуры
+Telegram: https://t.me/TeaTechnology
 
-!!! Телеграм канал автора: https://t.me/TeaTechnology
-
-Так же вы можете поменять некоторые настройки модели в main.py файле
-Так же вы можете удалить файл chat_history.json для обнуления истории
-
-Для работы используйте Ollama + установленную вами модель с поддержкой tools
-Изменить модель можно в Settings/model.txt
-
-Ссылка на Ollama, где можно скачать как её, так и модели для неё:
-https://ollama.com/
+ENG (machine-translation): This is my project 'Project AI friend' - the original idea was to make a friend out of a local AI because of the lack of friends, but after that I decided to add his 'Hands' - first his directory, where he can do what he wants, then his eyes... In previous versions, there were ears and a mouth, or rather libraries with a microphone and audio output. I created a semblance of a personality with my philosophy and now I decided to share it here - in a new space for me, on GitHub... I didn't have a very successful experience here before, but now I hope that I can find new people and an audience, as I continue to write open-source code.
+Well, I also have other versions of the code in my telegram - I threw literally everything there, starting with v1.0a, not to mention the in_dev version or even my other projects!

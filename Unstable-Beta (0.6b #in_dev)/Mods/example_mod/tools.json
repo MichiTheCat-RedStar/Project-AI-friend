@@ -1,0 +1,16 @@
+{   
+"type": "function", 
+    "function": {
+        "name": "randint",
+        "description": "Возвращает случайное число в обозначенном диапазоне от X до Y",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "X": {
+                    "type": "integer",
+                    "description": "Число от которого будет диапазон (X)"},
+                "Y": {
+                    "type": "integer",
+                    "description": "Число до которого будет диапазон (Y)"}},
+            "required": ["X", "Y"]}}
+}
