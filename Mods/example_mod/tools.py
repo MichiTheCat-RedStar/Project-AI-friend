@@ -1,0 +1,2 @@
+from random import randint as ran             # Не забывайте импортировать библиотеки
+def randint(X, Y): return ran(int(X), int(Y)) # Не забывайте указывать тип: ИИ вызывает инструменты как str -> int(X|Y) 
