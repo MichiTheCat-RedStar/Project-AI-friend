@@ -1,0 +1,1 @@
+pip install ollama requests beautifulsoup4 wikipedia search-web websearch-python
