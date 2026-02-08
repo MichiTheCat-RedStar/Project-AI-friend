@@ -58,7 +58,7 @@ def loging(role='None', text=str): # Добавить в логи событие
             log_dir = f'Logs/session_{now.year}Y-{now.month:02d}M-{now.day:02d}D_{now.hour:02d}h-{now.minute:02d}m-{now.second:02d}s.txt'
             with open(log_dir, 'a', encoding='UTF-8') as f:
                 f.write(f'<{now.hour:02d}:{now.minute:02d}:{now.second:02d} {now.day:02d}.{now.month:02d}.{now.year}>\n<{role}> {text}\n\n')
-loging('Система', f'Загружены функции и создан лог-файл\n{CPU=}\n{CW=}\n{LOOPS=}\n{NEW=}\n{LOG=}n{MODS=}\n{VL=}')
+loging('Система', f'Загружены функции и создан лог-файл\n{CPU=}\n{CW=}\n{LOOPS=}\n{NEW=}\n{LOG=}\n{MODS=}\n{VL=}\n{KA=}\n{WS=}')
 
 
 # Инструменты для ИИ
@@ -172,7 +172,7 @@ tools = [
                     "title": {
                         "type": "string",
                         "description": "Название страницы"}},
-                "required": ["link"]}}
+                "required": ["title"]}}
     },
     {   "type": "function", # TODO Перепиши это ради боба, я уже не могу [ВОТ НЕПРУХА]
         "function": {
@@ -227,7 +227,7 @@ if VL:
                         "file_name": {
                             "type": "string",
                             "description": "Название файла-изображения"}},
-                    "required": ["link"]}}})
+                    "required": ["file_name"]}}})
         print('Загрузка работы с изображениями завершена')
         loging('Система', 'Загружена работа с изображениями')
     except:
@@ -246,7 +246,7 @@ if WS:
         elif website == 'amazon': search_web.amazon_search(text); return f'Успешно открыт Amazon с запросом "{text}"'
         elif website == 'cnn': search_web.cnn_search(text); return f'Успешно открыт CNN с запросом "{text}"'
         elif website == 'medicalnewstoday': search_web.medicalnewstoday_search(text); return f'Успешно открыт Medical News Today с запросом "{text}"'
-        elif website == 'python': search_web.python_search(text); return f'ОУспешно открыт Python с запросом "{text}"'
+        elif website == 'python': search_web.python_search(text); return f'Успешно открыт Python с запросом "{text}"'
         elif website == 'pinterest': search_web.pinterest_search(text); return f'Успешно открыт Pinterest с запросом "{text}"'
         elif website == 'playstore': search_web.playstore_search(text); return f'Успешно открыт Playstore с запросом "{text}"'
         elif website == 'nytimes': search_web.nytimes_search(text); return f'Успешно открыт New York Times с запросом "{text}"'
@@ -266,7 +266,7 @@ if WS:
                     "text": {
                         "type": "string",
                         "description": "Что конкретно будет вбито в поисковую строку на этом сайте"}},
-                "required": ["file_name", "content"]}}})
+                "required": ["website", "text"]}}})
     print('Загрузка работы с браузерными запросами завершена')
     loging('Система', 'Загрузка работы с браузерными запросами завершена')
 
