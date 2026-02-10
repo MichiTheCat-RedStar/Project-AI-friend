@@ -10,6 +10,8 @@ import wikipedia
 from bs4 import BeautifulSoup
 import search_web
 from websearch import WebSearch
+from rich.markdown import Markdown
+from rich import print as rich_print
 log_dir = None # Нужно, дабы не создавалось сто лог-файлов, а всё было в том, с которого всё началось
 print('импортрование библиотек завершено')
 
@@ -24,6 +26,7 @@ MODS = True     # Активирует поддержку модов            
 VL = True       # Включить визуальную модель                                            |   По стандарту True, но если у вас нет визуальной модели, то лучше выключить
 KA = 20         # Сколько секунд после ответа модель будет в памяти                     |   По стандарту 20 секунд, но если вам нужна оперативная память между ответами модели, то ставьте на 0, а при фокусированном общении с ИИ - наоборот ставьте больше, чтобы каждый раз снова не загружать ИИ в память
 WS = True       # Позволяет ассистенту открыть вкладку в браузере с запросом            |   По стандарту True, но если не нужна работа с браузером, то ставьте False
+R = True        # Поддержка Markdown                                                    |   По стандарту True, но если Markdown плохо обрабатывается, то поставьте False
 
 
 # Проверка и восстановление/создание папок
@@ -65,7 +68,7 @@ def loging(role='None', text=str): # Добавить в логи событие
             log_dir = f'Logs/session_{now.year}Y-{now.month:02d}M-{now.day:02d}D_{now.hour:02d}h-{now.minute:02d}m-{now.second:02d}s.txt'
             with open(log_dir, 'a', encoding='UTF-8') as f:
                 f.write(f'<{now.hour:02d}:{now.minute:02d}:{now.second:02d} {now.day:02d}.{now.month:02d}.{now.year}>\n<{role}> {text}\n\n')
-loging('Система', f'Загружены функции и создан лог-файл\n{CPU=}\n{CW=}\n{LOOPS=}\n{NEW=}\n{LOG=}\n{MODS=}\n{VL=}\n{KA=}\n{WS=}')
+loging('Система', f'Загружены функции и создан лог-файл\n{CPU=}\n{CW=}\n{LOOPS=}\n{NEW=}\n{LOG=}\n{MODS=}\n{VL=}\n{KA=}\n{WS=}\n{R=}')
 
 
 # Инструменты для ИИ
@@ -379,7 +382,10 @@ while True:
                 tool_check = False
 
         if answer: # вывод ответа
-            print(('\b'*12)+(' '*12)+('\b'*12)+f'<ИИ> {answer}\n<думал {(time()-time_start):.2f} секунд>')
+            print(('\b'*12)+(' '*12)+('\b'*12), end='<ИИ> ', flush=True)
+            if R: rich_print(Markdown(answer))
+            else: print(answer)
+            print(f'<думал {(time()-time_start):.2f} секунд>')
             history.append({"role": "assistant", "content": answer})
             loging('Искуственный Интелект', answer)
         else:
